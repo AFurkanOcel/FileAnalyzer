@@ -1,91 +1,308 @@
-﻿# File Analyzer
+﻿<h1 align="center">File Analyzer</h1>
 
-A .NET Framework file analysis tool with Console and Windows Forms interfaces, supporting TXT, DOCX, and PDF files.
+<p align="center">
+A .NET Framework file analysis solution with shared core logic, Console and Windows Forms interfaces, and support for TXT, DOCX, and PDF documents.
+</p>
 
-## Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-C%23-blue"/>
+  <img src="https://img.shields.io/badge/Framework-.NET%20Framework%204.8-purple"/>
+  <img src="https://img.shields.io/badge/UI-Console%20%2B%20WinForms-green"/>
+  <img src="https://img.shields.io/badge/Documents-TXT%20%7C%20DOCX%20%7C%20PDF-orange"/>
+  <img src="https://img.shields.io/badge/Architecture-Shared%20Core-red"/>
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen"/>
+</p>
 
-File Analyzer reads text-based document formats and produces practical statistics such as character count, line count, unique word count, repeated word frequency, and punctuation frequency. The solution includes a shared analysis library plus two user interfaces: a console application and a Windows Forms desktop application.
+---
+
+## Project Overview
+
+**File Analyzer** is a multi-interface desktop solution for reading and analyzing
+text-based documents. The project includes both a Console application and a
+Windows Forms application, built on top of a shared core library.
+
+The analyzer extracts text from supported file types and reports useful text
+statistics such as character count, line count, unique word count, repeated word
+frequency, and punctuation frequency.
+
+The project was originally developed as separate Console and WinForms
+applications, then reorganized into a single professional solution with shared
+business logic.
+
+---
+
+## Supported File Types
+
+| File Type | Support |
+|-----------|---------|
+| `.txt` | Plain text reading |
+| `.docx` | Word document text extraction |
+| `.pdf` | PDF text extraction |
+
+---
+
+## Technologies Used
+
+| Technology | Purpose |
+|-----------|---------|
+| C# | Main programming language |
+| .NET Framework 4.8 | Application framework |
+| Windows Forms | Desktop graphical interface |
+| Console Application | Lightweight command-line style interface |
+| Open XML SDK | DOCX text extraction |
+| PdfPig | PDF text extraction |
+| Newtonsoft.Json | JSON export support in WinForms |
+| Visual Studio | Development and build environment |
+
+---
+
+## Solution Architecture
+
+The solution separates shared analysis logic from user interface logic.
+
+```text
+FileAnalyzer/
+|-- FileAnalyzer.sln
+|-- README.md
+|-- LICENSE
+|-- .gitignore
+|
+`-- src/
+    |-- FileAnalyzer.Core/
+    |   |-- FileReaders/
+    |   |   |-- TxtFileReader.cs
+    |   |   |-- DocxFileReader.cs
+    |   |   `-- PdfFileReader.cs
+    |   |-- Models/
+    |   |   `-- AnalysisResult.cs
+    |   |-- TextAnalyzer.cs
+    |   |-- FileAnalyzer.Core.csproj
+    |   `-- packages.config
+    |
+    |-- FileAnalyzer.Console/
+    |   |-- Program.cs
+    |   |-- App.config
+    |   `-- FileAnalyzer.Console.csproj
+    |
+    `-- FileAnalyzer.WinForms/
+        |-- Form1.cs
+        |-- Form2.cs
+        |-- Program.cs
+        |-- App.config
+        |-- Resources/
+        |-- Properties/
+        |-- FileAnalyzer.WinForms.csproj
+        `-- packages.config
+```
+
+---
+
+## Main Components
+
+| Component | Responsibility |
+|----------|----------------|
+| `FileAnalyzer.Core` | Shared file reading and text analysis logic |
+| `TextAnalyzer.cs` | Calculates text statistics and formats analysis output |
+| `TxtFileReader.cs` | Reads plain text files |
+| `DocxFileReader.cs` | Extracts paragraph text from DOCX files |
+| `PdfFileReader.cs` | Extracts page text from PDF files |
+| `AnalysisResult.cs` | Stores structured analysis results |
+| `FileAnalyzer.Console` | Console-based file selection and output flow |
+| `FileAnalyzer.WinForms` | Windows Forms UI, filtering, progress bar, login screen, and export flow |
+
+---
 
 ## Features
 
 - Analyze `.txt`, `.docx`, and `.pdf` files
-- Shared core library for file reading and text analysis
-- Console interface for quick analysis workflows
-- Windows Forms interface with file type filters, progress bar, and export options
-- Repeated word frequency and punctuation frequency reports
-- Export analysis results as `.txt` or `.json` from the WinForms app
-- Error logging to a local `Logs/log.txt` file
-- Optional login/signup screen in the WinForms app
+- Shared core library used by both applications
+- Console interface for quick document analysis
+- Windows Forms interface with file type selection filters
+- Character count calculation
+- Line count calculation
+- Unique word count calculation
+- Repeated word frequency listing
+- Punctuation frequency listing
+- TXT and JSON export support in the WinForms application
+- Local error logging under `Logs/log.txt`
+- Optional login/signup screen in the WinForms application
+- Guest mode support without database configuration
 
-## Project Structure
+---
+
+## Analysis Workflow
 
 ```text
-FileAnalyzer/
-├── src/
-│   ├── FileAnalyzer.Core/
-│   ├── FileAnalyzer.Console/
-│   └── FileAnalyzer.WinForms/
-├── README.md
-├── LICENSE
-├── .gitignore
-└── FileAnalyzer.sln
+Select a file
+   |
+   v
+Detect file extension
+   |
+   v
+Use the matching file reader
+   |
+   v
+Extract text content
+   |
+   v
+Analyze text in FileAnalyzer.Core
+   |
+   v
+Display result in Console or WinForms UI
+   |
+   v
+Optionally export result from WinForms
 ```
 
-## Technologies
+---
 
-- C#
-- .NET Framework 4.8
-- Windows Forms
-- Open XML SDK
-- PdfPig
-- Newtonsoft.Json
-- Visual Studio
+## Console Application
 
-## Installation
+The Console application provides a lightweight workflow for choosing a supported
+file and printing the analysis result directly to the console window.
 
-1. Clone the repository.
-2. Open `FileAnalyzer.sln` in Visual Studio.
-3. Restore NuGet packages when prompted.
-4. Choose either `FileAnalyzer.Console` or `FileAnalyzer.WinForms` as the startup project.
-5. Build and run the selected project.
+### Console File Selection
 
-## Usage
+<img width="600" height="636" alt="Console file selection dialog" src="https://github.com/user-attachments/assets/9fcddc28-2d8e-45f9-ad0f-930bc71405ff" />
 
-### Console
+### Console Output
 
-1. Run `FileAnalyzer.Console`.
-2. Select a `.txt`, `.docx`, or `.pdf` file from the file dialog.
-3. Review the analysis output in the console window.
+<img width="600" height="637" alt="Console analysis output" src="https://github.com/user-attachments/assets/7f612d49-83dd-470d-8122-3c6ea542f382" />
 
-### Windows Forms
+---
 
-1. Run `FileAnalyzer.WinForms`.
-2. Log in, sign up, or continue as a guest.
-3. Select the file types you want to allow.
-4. Choose a file and click **Analyze**.
-5. Export the result as `.txt` or `.json` when needed.
+## Windows Forms Application
 
-## Login Configuration
+The Windows Forms application provides a graphical interface with selectable file
+filters, progress feedback, formatted analysis output, and export options.
 
-The WinForms app can be used as a guest without database setup. Login and signup are optional and use the `FileAnalyzerLoginDb` connection string in `src/FileAnalyzer.WinForms/App.config`. Configure that value only if you want to enable the database-backed login flow.
+### Login and Signup Screen
+
+The login/signup screen is optional. Users can continue with guest mode when no
+database connection is configured.
+
+<img width="336" height="297" alt="WinForms login and signup screen" src="https://github.com/user-attachments/assets/da12c524-31d3-468f-9a48-8e105311de65" />
+
+### File Analyzer Screen
+
+<img width="445" height="661" alt="WinForms file analyzer screen" src="https://github.com/user-attachments/assets/2a119c5a-714b-450f-a8d7-9488806501f7" />
+
+---
+
+## Text Analysis Details
+
+The analyzer reports:
+
+| Metric | Description |
+|--------|-------------|
+| Character Count | Total number of characters in the extracted content |
+| Line Count | Total number of lines in the extracted content |
+| Unique Word Count | Number of distinct filtered words |
+| Repeated Words | Words appearing more than once, sorted by frequency |
+| Punctuation Counts | Punctuation marks found in the content, sorted by frequency |
+
+During word analysis, common conjunctions such as `ve`, `ile`, `ama`, and
+`ancak` are excluded, and numeric tokens are ignored.
+
+---
 
 ## Export Options
 
-The Windows Forms application can export the current analysis result to:
+The Windows Forms application can export the current analysis result as:
 
-- `AnalyzeResults/AnalyzeResult.txt`
-- `AnalyzeResults/AnalyzeResult.json`
+```text
+AnalyzeResults/
+|-- AnalyzeResult.txt
+`-- AnalyzeResult.json
+```
 
-These generated files are intentionally ignored by Git.
+Generated export files are ignored by Git because they are runtime outputs.
+
+---
+
+## Login Configuration
+
+The WinForms application can be used as a guest without database setup.
+
+Login and signup are optional and use the `FileAnalyzerLoginDb` connection string
+inside:
+
+```text
+src/FileAnalyzer.WinForms/App.config
+```
+
+To enable the database-backed login flow, configure the connection string and
+provide a table named `LogInTable` with `Username` and `Password` columns.
+
+---
 
 ## Error Logging
 
-Runtime exceptions are written to `Logs/log.txt`. The `Logs/` directory is ignored by Git because it contains local runtime output.
+Runtime exceptions are written to:
+
+```text
+Logs/log.txt
+```
+
+The `Logs/` directory is ignored by Git because it contains local runtime data.
+
+---
+
+## How to Run
+
+Open the solution in Visual Studio:
+
+```text
+FileAnalyzer.sln
+```
+
+Restore NuGet packages if Visual Studio prompts for it.
+
+### Run the Console App
+
+1. Right-click `FileAnalyzer.Console`.
+2. Select **Set as Startup Project**.
+3. Run with `F5` or `Ctrl + F5`.
+4. Select a supported file from the file dialog.
+
+### Run the Windows Forms App
+
+1. Right-click `FileAnalyzer.WinForms`.
+2. Select **Set as Startup Project**.
+3. Run with `F5` or `Ctrl + F5`.
+4. Continue as guest or configure login support.
+5. Select a supported file and click **Analyze**.
+
+---
+
+## Build Verification
+
+The solution was verified with MSBuild after reorganizing the projects:
+
+```text
+Build succeeded.
+0 Warning(s)
+0 Error(s)
+```
+
+---
+
+## Limitations and Future Work
+
+- Login/signup currently uses a simple database-backed flow and is optional.
+- Passwords are not hashed yet; authentication can be improved for production use.
+- The analyzer uses simple token filtering and can be extended with stronger text normalization.
+- Unit tests can be added for file readers and text analysis behavior.
+- A modern .NET version could be considered in a future migration.
+
+---
+
+## Author
+
+**A. Furkan OCEL**
+
+---
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-
-
-
+This project is licensed under the terms included in the repository's `LICENSE` file.
