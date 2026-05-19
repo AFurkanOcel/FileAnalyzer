@@ -163,7 +163,7 @@ file and printing the analysis result directly to the console window.
 
 ### Console File Selection
 
-<img width="600" height="636" alt="Console file selection dialog" src="https://github.com/user-attachments/assets/9fcddc28-2d8e-45f9-ad0f-930bc71405ff" />
+<alt="Console file selection dialog" src="https://github.com/user-attachments/assets/9fcddc28-2d8e-45f9-ad0f-930bc71405ff" />
 
 ### Console Output
 
