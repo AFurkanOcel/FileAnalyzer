@@ -167,7 +167,7 @@ file and printing the analysis result directly to the console window.
 
 ### Console Output
 
-<img width="600" height="637" alt="Console analysis output" src="https://github.com/user-attachments/assets/7f612d49-83dd-470d-8122-3c6ea542f382" />
+<img alt="Console analysis output" src="https://github.com/user-attachments/assets/7f612d49-83dd-470d-8122-3c6ea542f382" />
 
 ---
 
@@ -299,7 +299,7 @@ Build succeeded.
 
 ## Author
 
-**A. Furkan OCEL**
+**A. Furkan ÖCEL**
 
 ---
 
