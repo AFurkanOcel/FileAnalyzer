@@ -167,7 +167,8 @@ file and printing the analysis result directly to the console window.
 
 ### Sample Console Output
 
-<pre style="background-color:#0d1117; color:#f0f6fc; padding:16px; border-radius:6px; overflow:auto;"><code>Character Count: 1248
+```text
+Character Count: 1248
 Line Count: 32
 Unique Word Count: 186
 
@@ -181,7 +182,8 @@ Punctuation Counts
 ------------------
 . : 18
 , : 9
-: : 4</code></pre>
+: : 4
+```
 
 ---
 
@@ -320,6 +322,7 @@ Build succeeded.
 ## License
 
 This project is licensed under the terms included in the repository's `LICENSE` file.
+
 
 
 
