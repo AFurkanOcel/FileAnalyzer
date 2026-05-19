@@ -161,13 +161,25 @@ Optionally export result from WinForms
 The Console application provides a lightweight workflow for choosing a supported
 file and printing the analysis result directly to the console window.
 
-### Console File Selection
+### Sample Console Output
 
-<img alt="Console file selection dialog" src="https://github.com/user-attachments/assets/9fcddc28-2d8e-45f9-ad0f-930bc71405ff" />
+```text
+Character Count: 1248
+Line Count: 32
+Unique Word Count: 186
 
-### Console Output
+Repetitive Words
+----------------
+5  analyzer
+3  document
+2  file
 
-<img alt="Console analysis output" src="https://github.com/user-attachments/assets/7f612d49-83dd-470d-8122-3c6ea542f382" />
+Punctuation Counts
+------------------
+. : 18
+, : 9
+: : 4
+```
 
 ---
 
@@ -181,11 +193,11 @@ filters, progress feedback, formatted analysis output, and export options.
 The login/signup screen is optional. Users can continue with guest mode when no
 database connection is configured.
 
-<img width="336" height="297" alt="WinForms login and signup screen" src="https://github.com/user-attachments/assets/da12c524-31d3-468f-9a48-8e105311de65" />
+<img width="336" height="297" alt="WinForms login and signup screen" src="assets/screenshots/winforms-login.png" />
 
 ### File Analyzer Screen
 
-<img width="445" height="661" alt="WinForms file analyzer screen" src="https://github.com/user-attachments/assets/2a119c5a-714b-450f-a8d7-9488806501f7" />
+<img width="445" height="661" alt="WinForms file analyzer screen" src="assets/screenshots/winforms-analyzer.png" />
 
 ---
 
@@ -306,3 +318,4 @@ Build succeeded.
 ## License
 
 This project is licensed under the terms included in the repository's `LICENSE` file.
+
