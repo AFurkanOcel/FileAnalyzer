@@ -25,7 +25,6 @@ FileAnalyzer/
 │   ├── FileAnalyzer.Core/
 │   ├── FileAnalyzer.Console/
 │   └── FileAnalyzer.WinForms/
-├── screenshots/
 ├── README.md
 ├── LICENSE
 ├── .gitignore
@@ -41,15 +40,6 @@ FileAnalyzer/
 - PdfPig
 - Newtonsoft.Json
 - Visual Studio
-
-## Screenshots
-
-Screenshots are kept in the `screenshots/` directory. Recommended screenshots for the repository are:
-
-- Console analysis output
-- WinForms login/signup screen
-- WinForms file analysis screen
-- File selection dialog
 
 ## Installation
 
@@ -95,5 +85,7 @@ Runtime exceptions are written to `Logs/log.txt`. The `Logs/` directory is ignor
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+
 
 
