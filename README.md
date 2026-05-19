@@ -66,6 +66,10 @@ FileAnalyzer/
 |-- README.md
 |-- LICENSE
 |-- .gitignore
+|-- assets/
+|   `-- screenshots/
+|       |-- winforms-login.png
+|       `-- winforms-analyzer.png
 |
 `-- src/
     |-- FileAnalyzer.Core/
@@ -318,4 +322,6 @@ Build succeeded.
 ## License
 
 This project is licensed under the terms included in the repository's `LICENSE` file.
+
+
 
