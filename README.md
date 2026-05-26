@@ -56,9 +56,7 @@ business logic.
 
 ---
 
-## Solution Architecture
-
-The solution separates shared analysis logic from user interface logic.
+## Project Structure
 
 ```text
 FileAnalyzer/
@@ -68,9 +66,6 @@ FileAnalyzer/
 |-- .gitignore
 |-- assets/
 |   `-- screenshots/
-|       |-- winforms-login.png
-|       `-- winforms-analyzer.png
-|
 `-- src/
     |-- FileAnalyzer.Core/
     |   |-- FileReaders/
@@ -82,12 +77,10 @@ FileAnalyzer/
     |   |-- TextAnalyzer.cs
     |   |-- FileAnalyzer.Core.csproj
     |   `-- packages.config
-    |
     |-- FileAnalyzer.Console/
     |   |-- Program.cs
     |   |-- App.config
     |   `-- FileAnalyzer.Console.csproj
-    |
     `-- FileAnalyzer.WinForms/
         |-- Form1.cs
         |-- Form2.cs
